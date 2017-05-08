@@ -29,12 +29,12 @@ module.exports = class extends Generator {
         message: 'What should be the base package for the application?',
         default: 'com.magnifyall.sample'
       }
-      /*,{
+      /* ,{
         type: 'confirm',
         name: 'someAnswer',
         message: 'Would you like to enable this option?',
         default: true
-      }*/
+      } */
     ];
 
     return this.prompt(prompts).then(props => {
@@ -54,6 +54,21 @@ module.exports = class extends Generator {
       this.destinationPath('karma.conf.js'),
       this.props
     );
+    this.fs.copyTpl(
+      this.templatePath('Gruntfile.js'),
+      this.destinationPath('Gruntfile.js'),
+      this.props
+    );
+    this.fs.copyTpl(
+      this.templatePath('public/index.html'),
+      this.destinationPath('public/index.html'),
+      this.props
+    );
+    this.fs.copyTpl(
+      this.templatePath('public/app.js'),
+      this.destinationPath('public/app.js'),
+      this.props
+    );
     this.fs.copy(
       this.templatePath('test/application.config.js'),
       this.destinationPath('test/application.config.js')
@@ -70,32 +85,32 @@ module.exports = class extends Generator {
       this.templatePath('lib/magnifyall.min.js'),
       this.destinationPath('lib/magnifyall.min.js')
     );
-    var _packagePath = "";
-    var _packageArr = this.props.basePackage.split(".");
-    for(var _i = 0; _i<_packageArr.length; _i++){
-      _packagePath += _packageArr[_i]+"/";
+    var _packagePath = '';
+    var _packageArr = this.props.basePackage.split('.');
+    for (var _i = 0; _i < _packageArr.length; _i++) {
+      _packagePath += _packageArr[_i] + '/';
     }
     this.fs.copyTpl(
       this.templatePath('test/com/magnifyall/sample/HelloWorld.spec.js'),
-      this.destinationPath('test/'+_packagePath+"HelloWorld.spec.js"),
+      this.destinationPath('test/' + _packagePath + 'HelloWorld.spec.js'),
       this.props
     );
     this.fs.copy(
       this.templatePath('src/com/magnifyall/sample/HelloWorld.js'),
-      this.destinationPath('src/'+_packagePath+"HelloWorld.js")
+      this.destinationPath('src/' + _packagePath + 'HelloWorld.js')
     );
   }
 
   install() {
     this.npmInstall();
-    //this.installDependencies();
+    // This.installDependencies();
   }
 
   end() {
     this.log(yosay(
-      chalk.green('Thanks, your project is setup, please do ')+
-      chalk.red('npm test')+
-      chalk.green(' to test this application.')
+      chalk.green('Thanks, your project is setup, please do ') +
+      chalk.red('npm start') +
+      chalk.green(' to start this application.')
     ));
   }
 };

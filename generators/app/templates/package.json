@@ -3,9 +3,18 @@
   "version": "1.0.0",
   "description": "<%= projectDesc %>",
   "scripts": {
-    "test": "node ./node_modules/karma/bin/karma start karma.conf.js"
+    "test": "node ./node_modules/karma/bin/karma start karma.conf.js",
+    "start": "concurrently --kill-others \"npm run test\" \"grunt\""
   },
   "devDependencies": {
+    "concurrently": "*",
+    "grunt": "*",
+    "grunt-cli": "*",
+    "grunt-contrib-clean": "*",
+    "grunt-contrib-copy": "*",
+    "grunt-contrib-connect": "*",
+    "grunt-contrib-uglify": "*",
+    "grunt-contrib-watch": "*",
     "jasmine-core": "^2.2.0",
     "karma": "^0.12.31",
     "karma-chrome-launcher": "^0.1.7",

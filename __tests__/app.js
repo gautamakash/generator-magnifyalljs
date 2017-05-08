@@ -12,7 +12,8 @@ describe('generator-magnifyalljs:app', () => {
   it('creates files', () => {
     assert.file([
       'package.json',
-      'karma.conf.js'
+      'karma.conf.js',
+      'Gruntfile.js'
     ]);
   });
 });
