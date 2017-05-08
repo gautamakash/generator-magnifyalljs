@@ -46,6 +46,6 @@
       "node": true
     }
   },
-  "repository": "https://github.com/gautamakash/generator-magnifyalljs",
+  "repository": "/gautamakash/generator-magnifyalljs",
   "license": "MIT"
 }
