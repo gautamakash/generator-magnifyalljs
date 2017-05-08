@@ -1,0 +1,9 @@
+{
+  "generator-node": {
+    "promptValues": {
+      "authorName": "Akash Gautam",
+      "authorEmail": "akashgautam007@gmail.com",
+      "authorUrl": "http://www.magnifyall.com"
+    }
+  }
+}
