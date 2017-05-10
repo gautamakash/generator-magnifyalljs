@@ -85,6 +85,10 @@ module.exports = class extends Generator {
       this.templatePath('lib/magnifyall.min.js'),
       this.destinationPath('lib/magnifyall.min.js')
     );
+    this.fs.copy(
+      this.templatePath('lib/router.min.js'),
+      this.destinationPath('lib/router.min.js')
+    );
     var _packagePath = '';
     var _packageArr = this.props.basePackage.split('.');
     for (var _i = 0; _i < _packageArr.length; _i++) {
