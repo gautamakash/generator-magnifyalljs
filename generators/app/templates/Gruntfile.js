@@ -5,8 +5,7 @@ module.exports = function(grunt){
         uglify: {
             options: {
                 compress: {
-                    sequences: false,
-                    screw_ie8 : false
+                    sequences: false
                 },
                 sourceMap: false
             },
