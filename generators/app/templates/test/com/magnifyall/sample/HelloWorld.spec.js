@@ -1,13 +1,15 @@
 describe('HelloWorld', function() {
   var helloWorld;
   // inject the HTML fixture for the tests
-  beforeEach(function() {
+  beforeEach(function(done) {
     var fixture = '<div id="fixture"></div>';
 
     document.body.insertAdjacentHTML(
       'afterbegin', 
       fixture);
-    testSystem.import("<%= basePackage %>.HelloWorld");
+    testSystem.import("<%= basePackage %>.HelloWorld", function(){
+      done();
+    });
   });// remove the html fixture from the DOM
 
   afterEach(function() {

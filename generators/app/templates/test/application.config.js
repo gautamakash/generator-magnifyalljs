@@ -1,4 +1,4 @@
-var testSystem = new System({
+var testSystem = new magnifyall.System({
     "lib": "/base/lib",
     "src": "/base/src"
 });
