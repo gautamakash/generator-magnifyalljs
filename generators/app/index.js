@@ -40,7 +40,7 @@ module.exports = class extends Generator {
     return this.prompt(prompts).then(props => {
       // To access props later use this.props.someAnswer;
       this.props = props;
-      this.props.projectFormatedName = this.props.projectName.toLowerCase().replace(" ", "_");
+      this.props.projectFormatedName = this.props.projectName.toLowerCase().replace(" ", "-");
     });
   }
 
