@@ -1,6 +1,6 @@
 {
-  "name": "<%= projectName %>",
-  "version": "1.0.0",
+  "name": "<%= projectFormatedName %>",
+  "version": "1.0.1",
   "description": "<%= projectDesc %>",
   "scripts": {
     "test": "node ./node_modules/karma/bin/karma start karma.conf.js",
