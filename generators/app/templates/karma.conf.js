@@ -40,21 +40,35 @@ module.exports = function(config) {
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
     reporters: ['progress','coverage'],
 
-    
+
+    htmlReporter: {
+      outputDir: 'reports/test', // where to put the reports  
+      templatePath: null, // set if you moved jasmine_template.html 
+      focusOnFailures: true, // reports show failures on start 
+      namedFiles: true, // name files instead of creating sub-directories 
+      pageTitle: "<%= projectName %>: Test Report", // page title for reports; browser info by default 
+      urlFriendlyName: true, // simply replaces spaces with _ for files/dirs 
+      reportName: 'index', // report summary filename; browser info by default 
+      
+      
+      // experimental 
+      preserveDescribeNesting: false, // folded suites stay folded  
+      foldAll: true, // reports start folded (only with preserveDescribeNesting) 
+    }, 
     coverageReporter: {
       // specify a common output directory 
-      dir: 'reports/coverage',
+      dir: 'reports',
       reporters: [
         // reporters not supporting the `file` property 
-        { type: 'html', subdir: 'report-html' },
-        { type: 'lcov', subdir: 'report-lcov' },
+        { type: 'html', subdir: 'coverage' },
+        { type: 'lcov', subdir: 'coverage/report-lcov' },
         // reporters supporting the `file` property, use `subdir` to directly 
         // output them in the `dir` directory 
-        { type: 'cobertura', subdir: '.', file: 'cobertura.txt' },
-        { type: 'lcovonly', subdir: '.', file: 'report-lcovonly.txt' },
-        { type: 'teamcity', subdir: '.', file: 'teamcity.txt' },
-        { type: 'text', subdir: '.', file: 'text.txt' },
-        { type: 'text-summary', subdir: '.', file: 'text-summary.txt' },
+        { type: 'cobertura', subdir: 'coverage', file: 'cobertura.txt' },
+        { type: 'lcovonly', subdir: 'coverage', file: 'report-lcovonly.txt' },
+        { type: 'teamcity', subdir: 'coverage', file: 'teamcity.txt' },
+        { type: 'text', subdir: 'coverage', file: 'text.txt' },
+        { type: 'text-summary', subdir: 'coverage', file: 'text-summary.txt' },
       ]
     },
 
