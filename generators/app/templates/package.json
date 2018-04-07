@@ -7,6 +7,7 @@
     "start": "concurrently --kill-others \"npm run test\" \"grunt\""
   },
   "devDependencies": {
+    "compression": "^1.7.2",
     "concurrently": "^3.4.0",
     "grunt": "^1.0.1",
     "grunt-cli": "^1.2.0",

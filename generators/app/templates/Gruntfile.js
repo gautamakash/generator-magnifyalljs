@@ -1,3 +1,4 @@
+var compression = require('compression');
 module.exports = function(grunt){
     //project configuration
     grunt.initConfig({
@@ -51,7 +52,7 @@ module.exports = function(grunt){
                     middlewares.unshift(function(req, res, next) {
                         return next();
                     });
-
+                    middlewares.unshift(compression());
                     return middlewares;
                 }
             }

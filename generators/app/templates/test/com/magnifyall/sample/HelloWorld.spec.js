@@ -1,4 +1,4 @@
-describe('HelloWorld', function() {
+describe('<%= basePackage %>.HelloWorld', function() {
   var helloWorld;
   // inject the HTML fixture for the tests
   beforeEach(function(done) {
